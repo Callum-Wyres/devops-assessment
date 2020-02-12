@@ -40,6 +40,7 @@ resource "azurerm_monitor_autoscale_setting" "assessment" {
   resource_group_name = local.resource_group
   location            = local.location
   target_resource_id  = "${data.azurerm_app_service_plan.assessment.id}"
+  depends_on          = [azurerm_app_service.assessment]
 
   profile {
     name = "defaultProfile"
